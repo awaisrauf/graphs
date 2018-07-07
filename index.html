@@ -24,12 +24,10 @@
 <script>
 
 
+
+
 const CHART = document.getElementById('lineChart');
-var request = new XMLHttpRequest();
-   request.open("GET", "https://raw.githubusercontent.com/awaisrauf/graphs/master/simple.json", false);
-   request.send(null)
-   var my_JSON_object = JSON.parse(request.responseText);
-   alert (my_JSON_object.result[0]);
+   
 var lineChart = new Chart(CHART, {
     type: 'bar',
     data: {
@@ -51,7 +49,11 @@ var lineChart = new Chart(CHART, {
         ]
     }
 })
-
+var request = new XMLHttpRequest();
+   request.open("GET", "https://raw.githubusercontent.com/awaisrauf/graphs/master/simple.json", false);
+   request.send(null)
+   var my_JSON_object = JSON.parse(request.responseText);
+   alert (my_JSON_object.result[0]);
 
 </script>
 </html>
