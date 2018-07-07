@@ -12,6 +12,7 @@
     <div class="row">
         <div class="col-sm-6">
             <canvas id="lineChart" width="100" height="300"></canvas>
+			<canvas id="lineChart1" width="100" height="300"></canvas>
         </div>
         <div class="col-sm-6">
         </div>
@@ -22,6 +23,8 @@
 
 
 <script>
+
+
 
 
 
@@ -44,16 +47,46 @@ var lineChart = new Chart(CHART, {
                 borderDashOffset: 0.0,
                 borderJointStyle: 'miter',
                
-                data: my_JSON_object[0]//[65,59,80,81,56,55]
+                data: [65,59,80,81]
             }
         ]
     }
 })
+
+console.log(data1)
 var request = new XMLHttpRequest();
    request.open("GET", "https://raw.githubusercontent.com/awaisrauf/graphs/master/simple.json", false);
    request.send(null)
-   var my_JSON_object = JSON.parse(request.responseText);
-   alert (my_JSON_object.result);
+   var my_JSON_object = JSON.parse(request.response);
+   
+   console.log(my_JSON_object);
+   var data1 = my_JSON_object["UrduTweets"];
+   console.log(data1[1]);
+   
+   
+const CHART1 = document.getElementById('lineChart1');
+   
+var lineChart = new Chart(CHART1, {
+    type: 'bar',
+    data: {
+        labels: ['January','February','March','April'],
+        datasets:[
+            {
+                label: 'My first dataset',
+                fill: false,
+                lineTension: 0,
+                backgroundColor: "rgba(75,192,192,0.4)",
+                borderColor: "rgba(75,192,192,1)",
+                borderCapStyle: 'butt',
+                borderDash: [],
+                borderDashOffset: 0.0,
+                borderJointStyle: 'miter',
+               
+                data: data1//[65,59,80,81]
+            }
+        ]
+    }
+})   
 
 </script>
 </html>
