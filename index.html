@@ -11,7 +11,7 @@
     </head>
     <div class="container">
     <div class="row">
-	    Something has happened again.
+	    Something has happened.
         <div class="col-sm-6">
             <canvas id="lineChart" style="position: relative; height:10vh; width:20vw"></canvas>
         </div>
@@ -21,7 +21,8 @@
 </div>
 
 <script>
- 
+const CHART = document.getElementById('lineChart');
+
   
 var lineChart = new Chart(CHART, {
     type: 'bar',
