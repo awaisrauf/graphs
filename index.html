@@ -4,7 +4,7 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <header>
   <h1>JSON and AJAX</h1>
-  <button id="btn">Fetch Info for 3 New Animals</button>
+  <div id="btn">Fetch Info for 3 New Animals</div>
 </header>
 
 <div id="animal-info"></div>
@@ -13,11 +13,10 @@
 var pageCounter = 1;
 var animalContainer = document.getElementById("animal-info");
 var btn = document.getElementById("btn");
-var densityCanvas = document.getElementById("densityChart");
 Chart.defaults.global.defaultFontFamily = "Lato";
 Chart.defaults.global.defaultFontSize = 18;
 
-btn.addEventListener("click", function() {
+
   var ourRequest = new XMLHttpRequest();
   ourRequest.open('GET', 'https://learnwebcode.github.io/json-example/animals-' + pageCounter + '.json');
   ourRequest.onload = function() {
@@ -96,8 +95,8 @@ btn.addEventListener("click", function() {
 
   ourRequest.send();
  
-});
+);
 
 
-}
+
 </script>
