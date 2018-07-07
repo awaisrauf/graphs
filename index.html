@@ -1,53 +1,72 @@
 <!DOCTYPE html>
-<html lang="en">
-    <head>
-        <meta charset="utf-8" />
-        <title>Chart.js demo</title>
-        <!-- import plugin script -->
-		<canvas id="densityChart" style="position: relative; height:20vh; width:40vw"></canvas>
-        <script src='https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.3.0/Chart.min.js'></script>
-		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+<html>
+<head>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.0/angular.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/1.1.1/Chart.min.js"></script>
+    <script src="http://www.encodedna.com/angularjs/tutorial/angular-chart.js"></script>
+</head>
 
-    </head>
-    <div class="container">
-    <div class="row">
-	    Something has happened.mmm
-        <div class="col-sm-6">
-            <canvas id="lineChart" style="position: relative; height:10vh; width:20vw"></canvas>
-        </div>
-        <div class="col-sm-6">
-        </div>
+<body>
+    <div ng-app="myChart" 
+        ng-controller="myController" style="width:700px;">
+
+        <canvas id="bar" 
+            class="chart chart-bar" 
+            data="data"
+            labels="labels"
+            colours="colors">
+        </canvas>
     </div>
-</div>
+</body>
 
 <script>
-const CHART = document.getElementById('lineChart');
+    var myApp = angular.module('myChart', ["chart.js"]);
 
-  
-var lineChart = new Chart(CHART, {
-    type: 'bar',
-    data: {
-        labels: ['January','February','March','April','May','June'],
-        datasets:[
-            {
-                label: 'My first dataset',
-                fill: false,
-                lineTension: 0,
-                backgroundColor: "rgba(75,192,192,0.4)",
-                borderColor: "rgba(75,192,192,1)",
-                borderCapStyle: 'butt',
-                borderDash: [],
-                borderDashOffset: 0.0,
-                borderJointStyle: 'miter',
-               
-                data: loaddata() {
-   this.Items = this.http.get("data.json")
-                 .map(res => res.json());
- }
-            }
-        ]
-    }
-})
+    myApp.controller('myController',
+        function ($scope, $http) {
 
+            // REQUEST OPTIONS USING GET METHOD.
+            var request = {
+                method: 'get',
+                url: 'http://www.encodedna.com/angularjs/tutorial/chartdata.json',
+                dataType: 'json',
+                contentType: "application/json"
+            };
 
+            $scope.arrData = new Array;
+            $scope.arrLabels = new Array;
+
+            // MAKE REQUEST USING $http SERVICE.
+            $http(request)
+                .success(function (jsonData) {
+
+                    // LOOP THROUGH DATA IN THE JSON FILE.
+                    angular.forEach(jsonData, function (item) {
+                        $scope.arrData.push(item.SaleFigure);
+                        $scope.arrLabels.push(item.Month);
+                    });
+
+                    $scope.data = new Array;
+                    $scope.labels = new Array;
+
+                    // UPDATE SCOPE PROPERTIES “data” and “label” FOR DATA.
+                    $scope.data.push($scope.arrData.slice(0));
+
+                    for (var i = 0; i < $scope.arrLabels.length; i++) {
+                        $scope.labels.push($scope.arrLabels[i]);
+                    }
+                })
+                .error(function () {
+
+                });
+
+            // NOW, ADD COLOURS TO THE BARS.
+            $scope.colors = [{
+                fillColor: 'rgba(30, 169, 224, 0.8)',
+                strokeColor: 'rgba(30, 169, 224, 0.8)',
+                highlightFill: 'rgba(30, 169, 224,, 0.8)',
+                highlightStroke: 'rgba(30, 169, 224, 0.8)'
+            }];
+        });
 </script>
+</html>
