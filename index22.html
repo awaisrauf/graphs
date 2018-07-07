@@ -1,12 +1,16 @@
 <!DOCTYPE html>
-<html lang="en">
-    <head>
-        <meta charset="utf-8" />
-        <title>Chart.js demo</title>
-        <!-- import plugin script -->
-        <script src='https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.3.0/Chart.min.js'></script>
-    </head>
-    <div class="container">
+<html>
+<head>
+
+
+  
+<!-- line chart canvas element -->
+        <canvas id="densityChart" style="position: relative; height:20vh; width:40vw"></canvas>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.3.0/Chart.min.js"></script>
+		<script src='https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.3.0/Chart.min.js'></script>
+
+</head>
+<div class="container">
     <div class="row">
         <div class="col-sm-6">
             <canvas id="lineChart" width="400" height="400"></canvas>
@@ -17,9 +21,6 @@
 </div>
 
 <script>
-
-
-
 const CHART = document.getElementById('lineChart');
 
 var lineChart = new Chart(CHART, {
@@ -43,6 +44,5 @@ var lineChart = new Chart(CHART, {
         ]
     }
 })
-
 
 </script>
