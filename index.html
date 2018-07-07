@@ -4,14 +4,16 @@
         <meta charset="utf-8" />
         <title>Chart.js demo</title>
         <!-- import plugin script -->
-		<canvas id="line-chart" style="position: relative; height:20vh; width:40vw"></canvas>
-        <script src="https://cdn.jsdelivr.net/angular.chartjs/latest/angular-chart.min.js"></script>
+		<canvas id="densityChart" style="position: relative; height:20vh; width:40vw"></canvas>
+        <script src='https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.3.0/Chart.min.js'></script>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
 
     </head>
     <div class="container">
     <div class="row">
+	    Something has happened again.
         <div class="col-sm-6">
-            <canvas id="line-chart" style="position: relative; height:10vh; width:20vw"></canvas>
+            <canvas id="lineChart" style="position: relative; height:10vh; width:20vw"></canvas>
         </div>
         <div class="col-sm-6">
         </div>
@@ -21,19 +23,27 @@
 <script>
  
   
-var ctx = document.getElementById("line-chart");
+var lineChart = new Chart(CHART, {
+    type: 'bar',
+    data: {
+        labels: ['January','February','March','April','May','June'],
+        datasets:[
+            {
+                label: 'My first dataset',
+                fill: false,
+                lineTension: 0,
+                backgroundColor: "rgba(75,192,192,0.4)",
+                borderColor: "rgba(75,192,192,1)",
+                borderCapStyle: 'butt',
+                borderDash: [],
+                borderDashOffset: 0.0,
+                borderJointStyle: 'miter',
+               
+                data: loaddata() { this.Items = this.http.get("../data.json").map(res => res.json());
+            }
+        ]
+    }
+})
 
-    new Chart(ctx, {
 
-
-        type: 'line',
-        data: {
-            labels: [1850, 1900, 1950, 2000, 2050],
-
-           datasets:  [1,2,2,3,4]
- }
-
-        }
-
-    });
 </script>
