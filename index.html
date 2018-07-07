@@ -23,19 +23,10 @@
 <script>
 const CHART = document.getElementById('lineChart');
 var ourRequest = new XMLHttpRequest();
-  ourRequest.open('GET', 'https://learnwebcode.github.io/json-example/animals-' + pageCounter + '.json');
-  ourRequest.onload = function() {
-    if (ourRequest.status >= 200 && ourRequest.status < 400) {
-      var ourData = JSON.parse(ourRequest.responseText);
+
+ourRequest.open('GET', 'https://learnwebcode.github.io/json-example/animals-.json');
+var ourData = JSON.parse(ourRequest.responseText);
   
-
-    
-  };
-
- 
-});
-
-
 var lineChart = new Chart(CHART, {
     type: 'bar',
     data: {
