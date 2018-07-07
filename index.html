@@ -21,11 +21,11 @@
 </div>
 
 <script>
-const CHART = document.getElementById('lineChart');
-var ourRequest = new XMLHttpRequest();
-
-ourRequest.open('GET', 'https://learnwebcode.github.io/json-example/animals-.json');
-var ourData = JSON.parse(ourRequest.responseText);
+  var request = new XMLHttpRequest();
+   request.open("GET", "../../data/file.json", false);
+   request.send(null)
+   var my_JSON_object = JSON.parse(request.responseText);
+   alert (my_JSON_object.result[0]);
   
 var lineChart = new Chart(CHART, {
     type: 'bar',
