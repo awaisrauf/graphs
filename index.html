@@ -1,48 +1,51 @@
 <!DOCTYPE HTML>
 <html>
 <head>
-<script>
-window.onload = function() {
-
-var dataPoints = [];
-
-var chart = new CanvasJS.Chart("chartContainer", {
-	animationEnabled: true,
-	theme: "light2",
-	title: {
-		text: "Daily Sales Data"
-	},
-	axisY: {
-		title: "Units",
-		titleFontSize: 24
-	},
-	data: [{
-		type: "column",
-		yValueFormatString: "#,### Units",
-		dataPoints: dataPoints
-	}]
-});
-
-function addData(data) {
-	for (var i = 0; i < data.length; i++) {
-		dataPoints.push({
-			x: new Date(data[i].date),
-			y: data[i].units
-		});
-	}
-	chart.render();
-
-}
-
-$.getJSON("https://canvasjs.com/data/gallery/javascript/daily-sales-data.json", addData);
-
-}
-</script>
-</head>
-<body>
-A new thing..
 <div id="chartContainer" style="height: 300px; width: 100%;"></div>
 <script src="https://canvasjs.com/assets/script/jquery-1.11.1.min.js"></script>
 <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
+</head>
+<body>
+<div class="container">
+    <div class="row">
+        <div class="col-sm-6">
+            <canvas id="lineChart" width="400" height="400"></canvas>
+        </div>
+        <div class="col-sm-6">
+        </div>
+    </div>
+</div>
+
 </body>
+
+
+<script>
+
+
+const CHART = document.getElementById('lineChart');
+
+var lineChart = new Chart(CHART, {
+    type: 'bar',
+    data: {
+        labels: ['January','February','March','April','May','June'],
+        datasets:[
+            {
+                label: 'My first dataset',
+                fill: false,
+                lineTension: 0,
+                backgroundColor: "rgba(75,192,192,0.4)",
+                borderColor: "rgba(75,192,192,1)",
+                borderCapStyle: 'butt',
+                borderDash: [],
+                borderDashOffset: 0.0,
+                borderJointStyle: 'miter',
+               
+                data: [65,59,80,81,56,55]
+            }
+        ]
+    }
+})
+
+
+</script>
 </html>
