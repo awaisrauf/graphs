@@ -11,7 +11,7 @@
     </head>
     <div class="container">
     <div class="row">
-	    Something has happened.
+	    Something has happened.mmm
         <div class="col-sm-6">
             <canvas id="lineChart" style="position: relative; height:10vh; width:20vw"></canvas>
         </div>
@@ -40,7 +40,10 @@ var lineChart = new Chart(CHART, {
                 borderDashOffset: 0.0,
                 borderJointStyle: 'miter',
                
-                data: [65,59,80,81,56,55]
+                data: loaddata() {
+   this.Items = this.http.get("data.json")
+                 .map(res => res.json());
+ }
             }
         ]
     }
