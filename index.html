@@ -20,6 +20,7 @@
 </div>
 
 <script>
+const CHART = document.getElementById('lineChart');
 
 var ourRequest = new XMLHttpRequest();
   ourRequest.open('GET', 'https://learnwebcode.github.io/json-example/animals-' + pageCounter + '.json');
@@ -41,7 +42,6 @@ var ourRequest = new XMLHttpRequest();
  
 );
 
-const CHART = document.getElementById('lineChart');
 
 var lineChart = new Chart(CHART, {
     type: 'bar',
