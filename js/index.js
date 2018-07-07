@@ -1,5 +1,4 @@
-<script src="https://code.jquery.com/jquery-1.12.4.min.js" charset="utf-8"></script>
-<script src="https://d3js.org/d3.v2.min.js"></script>
+
 <script type="text/javascript">
     var salesData;
     var truncLengh = 30;
