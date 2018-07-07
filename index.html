@@ -28,89 +28,16 @@
 
 		
 </head>
+
 <body>
-<h1> Pakistna sdsdsdsd...,</h1>
-<div class="container">
-    <div class="row">
-        <div class="col-sm-6" style="position: relative; height:10vh; width:20vw; text-align:center">
-            <canvas id="lineChart"  ></canvas>
-			<canvas id="lineChart1" ></canvas>
-        </div>
-        <div class="col-sm-6">
-        </div>
-    </div>
-</div>
 
 <div class="chart">
 	<canvas id="property_types" class="pie"></canvas>
 	<div id="pie_legend"></div>
 </div>
-
 </body>
 
-
 <script>
-const CHART = document.getElementById('lineChart');
-   
-var lineChart = new Chart(CHART, {
-    type: 'bar',
-    data: {
-        labels: ['January','February','March','April'],
-        datasets:[
-            {
-                label: 'My first dataset',
-                fill: false,
-                lineTension: 0,
-                backgroundColor: "rgba(75,192,192,0.4)",
-                borderColor: "rgba(75,192,192,1)",
-                borderCapStyle: 'butt',
-                borderDash: [],
-                borderDashOffset: 0.0,
-                borderJointStyle: 'miter',
-               
-                data: [65,59,80,81]
-            }
-        ]
-    }
-})
-
-console.log(data1)
-var request = new XMLHttpRequest();
-   request.open("GET", "https://raw.githubusercontent.com/awaisrauf/graphs/master/simple.json", false);
-   request.send(null)
-   var my_JSON_object = JSON.parse(request.response);
-   
-   console.log(my_JSON_object);
-   var data1 = my_JSON_object["UrduTweets"];
-   console.log(data1[1]);
-   
-   
-const CHART1 = document.getElementById('lineChart1');
-   
-var lineChart = new Chart(CHART1, {
-    type: 'bar',
-    data: {
-        labels: ['PTI','PMLN','PPP','MQM'],
-        datasets:[
-            {
-                label: 'My first dataset',
-                fill: false,
-                lineTension: 0,
-                backgroundColor: "rgba(75,192,192,0.4)",
-                borderColor: "rgba(75,192,192,1)",
-                borderCapStyle: 'butt',
-                borderDash: [],
-                borderDashOffset: 0.0,
-                borderJointStyle: 'miter',
-               
-                data: data1//[65,59,80,81]
-            }
-        ]
-    }
-})   
-
-
-
 	// global options variable
 	var options = {
 		responsive: true,
@@ -172,6 +99,4 @@ var lineChart = new Chart(CHART1, {
 
 
 
-
 </script>
-</html>
