@@ -35,25 +35,20 @@
 const CHART = document.getElementById('lineChart');
    
 var lineChart = new Chart(CHART, {
-    type: 'bar',
-    data: {
-        labels: ['January','February','March','April'],
-        datasets:[
-            {
-                label: 'My first dataset',
-                fill: false,
-                lineTension: 0,
-                backgroundColor: "rgba(75,192,192,0.4)",
-                borderColor: "rgba(75,192,192,1)",
-                borderCapStyle: 'butt',
-                borderDash: [],
-                borderDashOffset: 0.0,
-                borderJointStyle: 'miter',
-               
-                data: [65,59,80,81]
-            }
-        ]
-    }
+    type: 'column',
+    data: [
+	{
+		// Change type to "bar", "area", "spline", "pie",etc.
+		type: "column",
+		dataPoints: [
+			{ label: "apple",  y: 10  },
+			{ label: "orange", y: 15  },
+			{ label: "banana", y: 25  },
+			{ label: "mango",  y: 30  },
+			{ label: "grape",  y: 28  }
+		]
+	}
+	]
 })
 
 console.log(data1)
