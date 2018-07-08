@@ -1,84 +1,46 @@
-<!DOCTYPE HTML>
 <html>
+  <head>
+    <!--Load the AJAX API-->
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
 
-<head>
-<style>
-img{
-pointer-events: none;
-}
-</style>
-  <script type="text/javascript" src="https://canvasjs.com/assets/script/jquery-1.11.1.min.js"></script>  
-<script type="text/javascript" src="https://canvasjs.com/assets/script/jquery.canvasjs.min.js"></script>
-<script type="text/javascript">
-window.onload = function () {
-   var chart = new CanvasJS.Chart("chartContainer", {
-    theme: "theme2",//theme1
-    title:{
-      text: "Position Image over Chart"              
-    },
-    data: [              
-      {			
-        type: "column",
-        dataPoints: [
-          { label: "PTI",  y: 14  },
-          { label: "PMLN", y: 20  },
-          { label: "PPP", y: 25  },
-          { label: "MQM",  y: 30  }
-        ]
+      // Load the Visualization API and the corechart package.
+      google.charts.load('current', {'packages':['corechart']});
+
+      // Set a callback to run when the Google Visualization API is loaded.
+      google.charts.setOnLoadCallback(drawChart);
+
+      // Callback that creates and populates a data table,
+      // instantiates the pie chart, passes in the data and
+      // draws it.
+      function drawChart() {
+
+        // Create the data table.
+        var data = new google.visualization.DataTable();
+        data.addColumn('string', 'Topping');
+        data.addColumn('number', 'Slices');
+        data.addRows([
+          ['Mushrooms', 3],
+          ['Onions', 1],
+          ['Olives', 1],
+          ['Zucchini', 1],
+          ['Pepperoni', 2]
+        ]);
+
+        // Set chart options
+        var options = {'title':'How Much Pizza I Ate Last Night',
+                       'width':400,
+                       'height':300};
+
+        // Instantiate and draw our chart, passing in some options.
+        var chart = new google.visualization.PieChart(document.getElementById('chart_div'));
+        chart.draw(data, options);
       }
-    ]
-  });
-  chart.render();
-  
-  var images = [];
-  var fruits= [];
-  
-  images.push({url: "https://thebusiness.com.pk/wp-content/uploads/2018/06/imran-khan.png"});
-  images.push({url: "http://pmln.org/wp-content/uploads/2017/11/nawaz-sharif.png"});
-  images.push({url: "http://img.dunyanews.tv/news/2016/December/12-29-16/news_big_images/367751_38841994.jpg"});
-  images.push({url: "https://canvasjs.com/wp-content/uploads/images/gallery/gallery-overview/mango.png"});
+    </script>
+  </head>
 
-  addImages(chart);
-
-  function addImages(chart){
-    for(var i = 0; i < chart.data[0].dataPoints.length; i++){
-      var label = chart.data[0].dataPoints[i].label;
-      
-      if(label){
-        fruits.push( $("<img>").attr("src", images[i].url)
-                    .attr("class", label)
-                    .css("display", "none")
-                    .appendTo($("#chartContainer>.canvasjs-chart-container"))
-                   );        
-      }
-      
-      positionImage(fruits[i], i);
-    }    
-  }
-  
-  function positionImage(fruit, index){ 
-    var imageBottom = chart.axisX[0].bounds.y1;     
-    var imageCenter = chart.axisX[0].convertValueToPixel(chart.data[0].dataPoints[index].x);
-    
-    fruit.width(chart.dataPointWidth * .9);
-    fruit.height(chart.dataPointWidth * .8);
-    fruit.css({"position": "absolute", 
-               "display": "block",
-               "top": imageBottom  - fruit.height(),
-               "left": imageCenter - fruit.width()/2
-              });
-    chart.render();
-  }
-  
-  $( window ).resize(function() {
-    for(var i = 0; i < chart.data[0].dataPoints.length; i++){
-    	positionImage(fruits[i], i);
-    }
-  }); 
-}
-</script>	
-</head>
-<body>
-	<div id="chartContainer" style="height: 500px; width: 700px;"></div>
-</body>
+  <body>
+    <!--Div that will hold the pie chart-->
+    <div id="chart_div"></div>
+  </body>
 </html>
