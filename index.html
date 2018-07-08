@@ -9,27 +9,13 @@
 		
 </head>
 <body>
-<h1> Pakistna sdsdsdsd...,</h1>
-<div class="container">
-    <div class="row">
-	    <h2 style ="align: left"> This is great <h2>
-         <div class="col-sm-6" style="position: relative; height:40vh; width:80vw; align:center">
-            <canvas id="lineChart"  ></canvas>
-			<canvas id="lineChart1" ></canvas>
-        </div>
-        <div class="col-sm-6">
-        </div>
-    </div>
-</div>
 
-<div class="chart">
-	<canvas id="property_types" class="pie"></canvas>
-	<div id="pie_legend"></div>
-</div>
+
+
 
 
 <script type="text/javascript" src="http://canvasjs.com/assets/script/canvasjs.min.js"></script>
-<div align="right">
+<div align="center">
 <div id="chartContainer1" style="width: 400px; height: 300px;float:left;"></div> 
 <div id="chartContainer2" style="width: 400px; height: 300px;"></div> </br>
 <div id="chartContainer3" style="width: 400px; height: 300px;float:left;"></div>
@@ -42,29 +28,7 @@
 
 
 <script>
-const CHART = document.getElementById('lineChart');
-   
-var lineChart = new Chart(CHART, {
-    type: 'bar',
-    data: {
-        labels: ['January','February','March','April'],
-        datasets:[
-            {
-                label: 'My first dataset',
-                fill: false,
-                lineTension: 0,
-                backgroundColor: "rgba(75,192,192,0.4)",
-                borderColor: "rgba(75,192,192,1)",
-                borderCapStyle: 'butt',
-                borderDash: [],
-                borderDashOffset: 0.0,
-                borderJointStyle: 'miter',
-               
-                data: [65,59,80,81]
-            }
-        ]
-    }
-})
+
 
 console.log(data1)
 var request = new XMLHttpRequest();
