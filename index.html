@@ -1,184 +1,86 @@
 <!DOCTYPE HTML>
 <html>
+
 <head>
-<!-- line chart canvas element -->
-        <!--canvas id="lineChart" style="position: relative; height:20vh; width:20vw"></canvas> -->
-		<script src="https://cdnjs.cloudflare.com/ajax/libs/canvasjs/1.7.0/canvasjs.js"></script>
-		<script src='https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.3.0/Chart.min.js'></script>
-
-		
-</head>
-
 <style>
-.center {
-    margin: auto;
-    width: 60%;
-    border: 3px solid #73AD21;
-    padding: 10px;
+img{
+pointer-events: none;
 }
 </style>
+  <script type="text/javascript" src="https://canvasjs.com/assets/script/jquery-1.11.1.min.js"></script>  
+<script type="text/javascript" src="https://canvasjs.com/assets/script/jquery.canvasjs.min.js"></script>
+<script type="text/javascript">
+window.onload = function () {
+   var chart = new CanvasJS.Chart("chartContainer", {
+    theme: "theme2",//theme1
+    title:{
+      text: "Position Image over Chart"              
+    },
+    data: [              
+      {			
+        type: "column",
+        dataPoints: [
+          { label: "apple",  y: 14  },
+          { label: "orange", y: 20  },
+          { label: "banana", y: 25  },
+          { label: "mango",  y: 30  },
+          { label: "grape",  y: 28  }
+        ]
+      }
+    ]
+  });
+  chart.render();
+  
+  var images = [];
+  var fruits= [];
+  
+  images.push({url: "https://canvasjs.com/wp-content/uploads/images/gallery/gallery-overview/apple.png"});
+  images.push({url: "https://canvasjs.com/wp-content/uploads/images/gallery/gallery-overview/orange.png"});
+  images.push({url: "https://canvasjs.com/wp-content/uploads/images/gallery/gallery-overview/banana.png"});
+  images.push({url: "https://canvasjs.com/wp-content/uploads/images/gallery/gallery-overview/mango.png"});
+  images.push({url: "https://canvasjs.com/wp-content/uploads/images/gallery/gallery-overview/grape.png"});
+
+  addImages(chart);
+
+  function addImages(chart){
+    for(var i = 0; i < chart.data[0].dataPoints.length; i++){
+      var label = chart.data[0].dataPoints[i].label;
+      
+      if(label){
+        fruits.push( $("<img>").attr("src", images[i].url)
+                    .attr("class", label)
+                    .css("display", "none")
+                    .appendTo($("#chartContainer>.canvasjs-chart-container"))
+                   );        
+      }
+      
+      positionImage(fruits[i], i);
+    }    
+  }
+  
+  function positionImage(fruit, index){ 
+    var imageBottom = chart.axisX[0].bounds.y1;     
+    var imageCenter = chart.axisX[0].convertValueToPixel(chart.data[0].dataPoints[index].x);
+    
+    fruit.width(chart.dataPointWidth * .5);
+    fruit.height(chart.dataPointWidth * .42);
+    fruit.css({"position": "absolute", 
+               "display": "block",
+               "top": imageBottom  - fruit.height(),
+               "left": imageCenter - fruit.width()/2
+              });
+    chart.render();
+  }
+  
+  $( window ).resize(function() {
+    for(var i = 0; i < chart.data[0].dataPoints.length; i++){
+    	positionImage(fruits[i], i);
+    }
+  }); 
+}
+</script>	
+</head>
 <body>
-
-
-
-
-<h1> jhgjgjgj</h1>
-<div id ="center" >
-<div id="chartContainer1" style="width: 400px; height: 300px;float:center;"></div> 
-<!--<div id="chartContainer2" style="width: 400px; height: 300px;"></div> </br>
-<div id="chartContainer3" style="width: 400px; height: 300px;float:left;"></div>
-<div id="chartContainer4" style="width: 400px; height: 300px;"></div>-->
-</div>
-
-
+	<div id="chartContainer" style="height: 300px; width: 100%;"></div>
 </body>
-
-
-<script>
-
-
-console.log(data1)
-var request = new XMLHttpRequest();
-   request.open("GET", "https://raw.githubusercontent.com/awaisrauf/graphs/master/simple.json", false);
-   request.send(null)
-   var my_JSON_object = JSON.parse(request.response);
-   
-   console.log(my_JSON_object);
-   var data1 = my_JSON_object["UrduTweets"];
-   console.log(data1[1]);
-   
-   
-var chart = new CanvasJS.Chart("chartContainer1",
-    {
-        animationEnabled: true,
-        title: {
-            text: "Spline Area Chart"
-        },
-        axisX: {
-            interval: 10,
-        },
-        data: [
-        {
-            type: "splineArea",
-            color: "rgba(255,12,32,.3)",
-            type: "splineArea",
-            dataPoints: [
-                { x: new Date(1992, 0), y: 2506000 },
-                { x: new Date(1993, 0), y: 2798000 },
-                { x: new Date(1994, 0), y: 3386000 },
-                { x: new Date(1995, 0), y: 6944000 },
-                { x: new Date(1996, 0), y: 6026000 },
-                { x: new Date(1997, 0), y: 2394000 },
-                { x: new Date(1998, 0), y: 1872000 },
-                { x: new Date(1999, 0), y: 2140000 },
-                { x: new Date(2000, 0), y: 7289000 },
-                { x: new Date(2001, 0), y: 4830000 },
-                { x: new Date(2002, 0), y: 2009000 },
-                { x: new Date(2003, 0), y: 2840000 },
-                { x: new Date(2004, 0), y: 2396000 },
-                { x: new Date(2005, 0), y: 1613000 },
-                { x: new Date(2006, 0), y: 2821000 }
-            ]
-        },
-        ]
-    });
-chart.render();
-
-var chart = new CanvasJS.Chart("chartContainer2",
-    {
-        animationEnabled: true,
-        title: {
-            text: "Pie Chart",
-        },
-        data: [
-        {
-            type: "pie",
-            showInLegend: true,
-            dataPoints: [
-                { y: 4181563, legendText: "PS 3", indexLabel: "PlayStation 3" },
-                { y: 2175498, legendText: "Wii", indexLabel: "Wii" },
-                { y: 3125844, legendText: "360", indexLabel: "Xbox 360" },
-                { y: 1176121, legendText: "DS", indexLabel: "Nintendo DS" },
-                { y: 1727161, legendText: "PSP", indexLabel: "PSP" },
-                { y: 4303364, legendText: "3DS", indexLabel: "Nintendo 3DS" },
-                { y: 1717786, legendText: "Vita", indexLabel: "PS Vita" }
-            ]
-        },
-        ]
-    });
-chart.render();
-
-var chart = new CanvasJS.Chart("chartContainer3",
-    {
-        animationEnabled: true,
-        title: {
-            text: "Line Chart"
-        },
-        axisX: {
-            valueFormatString: "MMM",
-            interval: 1,
-            intervalType: "month"
-        },
-        axisY: {
-            includeZero: false
-        },
-        data: [
-        {
-          type: "line",
-          dataPoints: [
-              { x: new Date(2012, 00, 1), y: 450 },
-              { x: new Date(2012, 01, 1), y: 414 },
-              { x: new Date(2012, 02, 1), y: 520, indexLabel: "highest", markerColor: "red", markerType: "triangle" },
-              { x: new Date(2012, 03, 1), y: 460 },
-              { x: new Date(2012, 04, 1), y: 450 },
-              { x: new Date(2012, 05, 1), y: 500 },
-              { x: new Date(2012, 06, 1), y: 480 },
-              { x: new Date(2012, 07, 1), y: 480 },
-              { x: new Date(2012, 08, 1), y: 410, indexLabel: "lowest", markerColor: "DarkSlateGrey", markerType: "cross" },
-              { x: new Date(2012, 09, 1), y: 500 },
-              { x: new Date(2012, 10, 1), y: 480 },
-              { x: new Date(2012, 11, 1), y: 510 }
-            ]
-        }
-        ]
-    });
-chart.render();
-
-var chart = new CanvasJS.Chart("chartContainer4",
-    {
-        animationEnabled: true,
-        title: {
-            text: "Column Chart"
-        },
-        axisX: {
-            interval: 10,
-        },
-        data: [
-        {
-            type: "column",
-            legendMarkerType: "triangle",
-            legendMarkerColor: "green",
-            color: "rgba(255,12,32,.3)",
-            showInLegend: true,
-            legendText: "Country wise population",
-            dataPoints: [
-                { x: 10, y: 297571, label: "India" },
-                { x: 20, y: 267017, label: "Saudi" },
-                { x: 30, y: 175200, label: "Canada" },
-                { x: 40, y: 154580, label: "Iran" },
-                { x: 50, y: 116000, label: "Russia" },
-                { x: 60, y: 97800, label: "UAE" },
-                { x: 70, y: 20682, label: "US" },
-                { x: 80, y: 20350, label: "China" }
-            ]
-        },
-        ]
-    });
-chart.render();
-
-
-
-
-
-</script>
 </html>
