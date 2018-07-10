@@ -57,10 +57,10 @@ Results_pakistan = {
 # Today's Results
 #==============================================================================
 Results_pakistan["Pakistan"] = getResultsList(dir_name_pakistan,list_of_files_pakistan[-1])
-Results_pakistan["Punjab"] = getResultsList(dir_name_pakistan,list_of_files_punjab[-1])
-Results_pakistan["Sindh"] = getResultsList(dir_name_pakistan,list_of_files_sindh[-1])
-Results_pakistan["KPK"] = getResultsList(dir_name_pakistan,list_of_files_kpk[-1])
-Results_pakistan["Balochistan"] = getResultsList(dir_name_pakistan,list_of_files_balochistan[-1])
+Results_pakistan["Punjab"] = getResultsList(dir_name_punjab,list_of_files_punjab[-1])
+Results_pakistan["Sindh"] = getResultsList(dir_name_sindh,list_of_files_sindh[-1])
+Results_pakistan["KPK"] = getResultsList(dir_name_kpk,list_of_files_kpk[-1])
+Results_pakistan["Balochistan"] = getResultsList(dir_name_balochistan,list_of_files_balochistan[-1])
 
 with open( os.path.join(dir_name_save,"pakistan.json"), "w") as write_file:
         json.dump(Results_pakistan, write_file)
