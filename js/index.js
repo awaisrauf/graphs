@@ -21,10 +21,10 @@ Highcharts.chart('container', {
         type: 'spline'
     },
     title: {
-        text: 'Monthly Average Temperature'
+        text: 'Real Time Popularity Trends of Top 3 Political Parties of Pakisatn'
     },
     subtitle: {
-        text: 'Source: WorldClimate.com'
+        text: 'Source:  Twitter + Understanding'
     },
      xAxis: {
         title: {
