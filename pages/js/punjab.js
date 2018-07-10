@@ -1,4 +1,4 @@
-var url="https://raw.githubusercontent.com/awaisrauf/graphs/master/prediction_code/results/graph_results/pakistan.json";
+var url="https://raw.githubusercontent.com/awaisrauf/graphs/master/prediction_code/results/graph_results/punjab.json";
 
 var request = new XMLHttpRequest();
 request.open("GET", url, false);
@@ -80,18 +80,7 @@ Highcharts.chart('container', {
 //#################################################
 // Daily Popularity 
 
-url="https://raw.githubusercontent.com/awaisrauf/graphs/master/prediction_code/results/graph_results/pakistan.json";
-
-var request = new XMLHttpRequest();
-request.open("GET", url, false);
-request.send(null)
-var Data = JSON.parse(request.response);
-
-var Pakistan = Data["Pakistan"];
 var Punjab = Data["Punjab"];
-var Sindh = Data["Sindh"];
-var KPK = Data["KPK"];
-var Balochistan = Data["Balochistan"];
 
 Highcharts.chart('container1', {
     chart: {
@@ -116,23 +105,9 @@ Highcharts.chart('container1', {
         y: -10
     }
 },
-    series: [{
-        name: 'Pakistan',
-        data: Pakistan
-    }, {
+    series: [ {
         name: 'Punajb',
         data: Punjab
-    }, {
-        name: 'Sindh',
-        data: Sindh
-    },
-	{
-        name: 'KPK',
-        data: KPK
-    },
-	{
-        name: 'Balochistan',
-        data: Balochistan
     }
     
 	
