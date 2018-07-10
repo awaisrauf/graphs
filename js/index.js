@@ -146,26 +146,16 @@ Highcharts.chart('columnChartPakistan', {
         type: 'column'
     },
     title: {
-        text: 'Popularity Levels of Top 3 Political Parties'
-    },
-    subtitle: {
-        text: 'As measured on July 10'
+        text: 'Column chart with negative values'
     },
     xAxis: {
-        categories: [
-            'PTI',
-            'PMLN',
-            'PPP'
-        ],
-        crosshair: true
+        categories: ['PTI', 'PMLN', 'PPP']
     },
-    yAxis: {
-        min: 0,
-        title: {
-            text: 'Popularity (%)'
-        }
+    credits: {
+        enabled: false
     },
-    exporting: { enabled: false },
+	
+	exporting: { enabled: false },
     credits: {
     position: {
         align: 'left',
@@ -174,41 +164,25 @@ Highcharts.chart('columnChartPakistan', {
         y: -10
     }
 },
-    
-    tooltip: {
-        headerFormat: '<span style="font-size:10px">{point.key}</span><table>',
-        pointFormat: '<tr><td style="color:{series.color};padding:0">{series.name}: </td>' +
-            '<td style="padding:0"><b>{point.y:.1f} %</b></td></tr>',
-        footerFormat: '</table>',
-        shared: true,
-        useHTML: true
-    },
-    plotOptions: {
-        column: {
-            pointPadding: 0.2,
-            borderWidth: 0
-        }
-    },
     series: [{
         name: 'Pakistan',
         data: Pakistan
-
     }, {
-        name: 'Punjab',
+        name: 'Punajb',
         data: Punjab
-
     }, {
         name: 'Sindh',
         data: Sindh
-
-    }, 
-    {
+    },
+	{
         name: 'KPK',
         data: KPK
-    }, 
-    {
+    },
+	{
         name: 'Balochistan',
         data: Balochistan
     }
-    ]
+    
+	
+	]
 });
