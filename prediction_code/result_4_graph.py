@@ -40,6 +40,9 @@ list_of_files_balouchistan = os.listdir(dir_name_balouchistan)
 #==============================================================================
 # Overall Pakistan's Results
 #==============================================================================
+PTI_line = []
+PMLN_line = []
+PPP_line = []
 for file in list_of_files_pakistan:
     ## Load Results from relative file
     with open(os.path.join(dir_name_pakistan,file)) as json_data:
@@ -51,6 +54,7 @@ for file in list_of_files_pakistan:
     PMLN_line.append((Pop[1]/Total)*100)
     PPP_line.append((Pop[2]/Total)*100)
 
+Results_pakistan = {}
 Results_pakistan = {
 "PTI Line": PTI_line,
 "PMLN Line": PMLN_line,
@@ -62,7 +66,7 @@ Results_pakistan["Pakistan"] = getResultsList(dir_name_pakistan,list_of_files_pa
 Results_pakistan["Punjab"] = getResultsList(dir_name_punjab,list_of_files_punjab[-1])
 Results_pakistan["Sindh"] = getResultsList(dir_name_sindh,list_of_files_sindh[-1])
 Results_pakistan["KPK"] = getResultsList(dir_name_kpk,list_of_files_kpk[-1])
-Results_pakistan["Balochistan"] = getResultsList(dir_name_balochistan,list_of_files_balochistan[-1])
+Results_pakistan["Balochistan"] = getResultsList(dir_name_balouchistan,list_of_files_balouchistan[-1])
 
 with open( os.path.join(dir_name_save,"pakistan.json"), "w") as write_file:
         json.dump(Results_pakistan, write_file)
@@ -70,6 +74,9 @@ with open( os.path.join(dir_name_save,"pakistan.json"), "w") as write_file:
 #==============================================================================
 # Overall Punjab's Results
 #==============================================================================
+PTI_line = []
+PMLN_line = []
+PPP_line = []
 for file in list_of_files_punjab:
     ## Load Results from relative file
     with open(os.path.join(dir_name_punjab,file)) as json_data:
@@ -81,6 +88,7 @@ for file in list_of_files_punjab:
     PMLN_line.append((Pop[1]/Total)*100)
     PPP_line.append((Pop[2]/Total)*100)
 
+Results_punjab = {}
 Results_punjab = {
 "PTI Line": PTI_line,
 "PMLN Line": PMLN_line,
@@ -97,6 +105,9 @@ with open( os.path.join(dir_name_save,"punjab.json"), "w") as write_file:
 #==============================================================================
 # Overall Sindh's Results
 #==============================================================================
+PTI_line = []
+PMLN_line = []
+PPP_line = []
 for file in list_of_files_sindh:
     ## Load Results from relative file
     with open(os.path.join(dir_name_sindh,file)) as json_data:
@@ -124,6 +135,9 @@ with open( os.path.join(dir_name_save,"sindh.json"), "w") as write_file:
 #==============================================================================
 # Overall KPK's Results
 #==============================================================================
+PTI_line = []
+PMLN_line = []
+PPP_line = []
 for file in list_of_files_kpk:
     ## Load Results from relative file
     with open(os.path.join(dir_name_kpk,file)) as json_data:
