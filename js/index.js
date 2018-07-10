@@ -8,6 +8,9 @@ var request = new XMLHttpRequest();
    console.log(my_JSON_object);
    var data1 = my_JSON_object["UrduTweets"];
    console.log(data1[1]);
+   
+// ########################################################
+// Popularity History chart   
 Highcharts.chart('container', {
 
     chart: {
@@ -127,4 +130,85 @@ Highcharts.chart('container', {
     }, {
         name: 'New users'
     }]
+});
+
+//#################################################
+// Daily Popularity 
+
+var Pakistan = [49.9, 71.5, 10];
+var Punjab = [49.9, 71.5, 16];
+var Sindh = [49.9, 71.5, 10];
+var KPK = [49.9, 71.5, 10];
+var Balochistan = [49.9, 71.5, 10];
+
+Highcharts.chart('container', {
+    chart: {
+        type: 'column'
+    },
+    title: {
+        text: 'Popularity Levels of Top 3 Political Parties'
+    },
+    subtitle: {
+        text: 'As measured on July 10'
+    },
+    xAxis: {
+        categories: [
+            'PTI',
+            'PMLN',
+            'PPP'
+        ],
+        crosshair: true
+    },
+    yAxis: {
+        min: 0,
+        title: {
+            text: 'Popularity (%)'
+        }
+    },
+    exporting: { enabled: false },
+    credits: {
+    position: {
+        align: 'left',
+        verticalAlign: 'bottom',
+        x: 10,
+        y: -10
+    }
+},
+    
+    tooltip: {
+        headerFormat: '<span style="font-size:10px">{point.key}</span><table>',
+        pointFormat: '<tr><td style="color:{series.color};padding:0">{series.name}: </td>' +
+            '<td style="padding:0"><b>{point.y:.1f} %</b></td></tr>',
+        footerFormat: '</table>',
+        shared: true,
+        useHTML: true
+    },
+    plotOptions: {
+        column: {
+            pointPadding: 0.2,
+            borderWidth: 0
+        }
+    },
+    series: [{
+        name: 'Pakistan',
+        data: Pakistan
+
+    }, {
+        name: 'Punjab',
+        data: Punjab
+
+    }, {
+        name: 'Sindh',
+        data: Sindh
+
+    }, 
+    {
+        name: 'KPK',
+        data: KPK
+    }, 
+    {
+        name: 'Balochistan',
+        data: Balochistan
+    }
+    ]
 });
