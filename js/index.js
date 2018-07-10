@@ -68,15 +68,21 @@ Highcharts.chart('container', {
     series: [{
         name: 'PTI',
         
-        data: PTI_line
+        data: PTI_line,
+		pointStart: Date.UTC(2018, 7, 7),
+		pointInterval: 24 * 3600 * 1000 // one day
 
     }, {
         name: 'PMLN',
-        data: PMLN_line
+        data: PMLN_line,
+		pointStart: Date.UTC(2018, 7, 7),
+		pointInterval: 24 * 3600 * 1000 // one day
     },
     {
         name: 'PPP',
-        data: PPP_line
+        data: PPP_line,
+		pointStart: Date.UTC(2018, 7, 7),
+		pointInterval: 24 * 3600 * 1000 // one day
     }
     ]
 });
