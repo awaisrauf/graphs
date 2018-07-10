@@ -141,7 +141,7 @@ var Sindh = [49.9, 71.5, 10];
 var KPK = [49.9, 71.5, 10];
 var Balochistan = [49.9, 71.5, 10];
 
-Highcharts.chart('container', {
+Highcharts.chart('columnChartPakistan', {
     chart: {
         type: 'column'
     },
