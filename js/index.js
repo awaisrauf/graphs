@@ -39,7 +39,7 @@ Highcharts.chart('container', {
         }
     },
 
-    title: {enabled: false},
+    title: 'Popularity history as elections getting closer',
       //  text: 'Daily sessions at www.highcharts.com'
     //},
 
