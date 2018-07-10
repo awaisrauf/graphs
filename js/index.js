@@ -9,126 +9,71 @@ var request = new XMLHttpRequest();
    var data1 = my_JSON_object["UrduTweets"];
    console.log(data1[1]);
    
+   
+   
+   
 // ########################################################
 // Popularity History chart   
 Highcharts.chart('container', {
-
     chart: {
-        scrollablePlotArea: {
-            minWidth: 700,
-       
-           
-        }
-       
+        type: 'spline'
     },
-	exporting: { enabled: false },
-    credits: {
-    position: {
-        align: 'left',
-        verticalAlign: 'bottom',
-        x: 10,
-        y: -10
-    }
-},
-
-    data: {
-        csvURL: 'https://cdn.rawgit.com/highcharts/highcharts/' +
-            '057b672172ccc6c08fe7dbb27fc17ebca3f5b770/samples/data/analytics.csv',
-        beforeParse: function (csv) {
-            return csv.replace(/\n\n/g, '\n');
-        }
+    title: {
+        text: 'Monthly Average Temperature'
     },
-
-    title: 'Popularity history as elections getting closer',
-      //  text: 'Daily sessions at www.highcharts.com'
-    //},
-
-   // subtitle: {
-     //   text: 'Source: Google Analytics'
-    //},
-
+    subtitle: {
+        text: 'Source: WorldClimate.com'
+    },
     xAxis: {
-        tickInterval: 7 * 24 * 3600 * 1000, // one week
-        tickWidth: 0,
-        gridLineWidth: 1,
+        categories: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun',
+            'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
+    },
+    yAxis: {
+        title: {
+            text: 'Temperature'
+        },
         labels: {
-            align: 'left',
-            x: 3,
-            y: -3
+            formatter: function () {
+                return this.value + '°';
+            }
         }
     },
-
-    yAxis: [{ // left y axis
-        title: {
-            text: null
-        },
-        labels: {
-            align: 'left',
-            x: 3,
-            y: 16,
-            format: '{value:.,0f}'
-        },
-        showFirstLabel: false
-    }, { // right y axis
-        linkedTo: 0,
-        gridLineWidth: 0,
-        opposite: true,
-        title: {
-            text: null
-        },
-        labels: {
-            align: 'right',
-            x: -3,
-            y: 16,
-            format: '{value:.,0f}'
-        },
-        showFirstLabel: false
-    }],
-
-    legend: {
-        align: 'left',
-        verticalAlign: 'top',
-        borderWidth: 0
-    },
-
     tooltip: {
-        shared: true,
-        crosshairs: true
+        crosshairs: true,
+        shared: true
     },
-
     plotOptions: {
-        series: {
-            cursor: 'pointer',
-            point: {
-                events: {
-                    click: function (e) {
-                        hs.htmlExpand(null, {
-                            pageOrigin: {
-                                x: e.pageX || e.clientX,
-                                y: e.pageY || e.clientY
-                            },
-                            headingText: this.series.name,
-                            maincontentText: Highcharts.dateFormat('%A, %b %e, %Y', this.x) + ':<br/> ' +
-                                this.y + ' sessions',
-                            width: 200
-                        });
-                    }
-                }
-            },
+        spline: {
             marker: {
+                radius: 4,
+                lineColor: '#666666',
                 lineWidth: 1
             }
         }
     },
-
     series: [{
-        name: 'All sessions',
-        lineWidth: 4,
+        name: 'Tokyo',
         marker: {
-            radius: 4
-        }
+            symbol: 'square'
+        },
+        data: [7.0, 6.9, 9.5, 14.5, 18.2, 21.5, 25.2, {
+            y: 26.5,
+            marker: {
+                symbol: 'url(https://www.highcharts.com/samples/graphics/sun.png)'
+            }
+        }, 23.3, 18.3, 13.9, 9.6]
+
     }, {
-        name: 'New users'
+        name: 'London',
+        marker: {
+            symbol: 'diamond'
+        },
+        data: [{
+            y: 3.9,
+            marker: {
+                symbol: 'url(https://www.highcharts.com/samples/graphics/snow.png)'
+            }
+        }, 4.2, 5.7, 8.5, 11.9, 15.2, 17.0, 16.6, 14.2, 10.3, 6.6, 4.8]
     }]
 });
 
