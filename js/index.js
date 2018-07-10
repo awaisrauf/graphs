@@ -94,18 +94,18 @@ Highcharts.chart('container', {
 //#################################################
 // Daily Popularity 
 
-var Pakistan = [-4, -71.5, 10];
-var Punjab = [49.9, -71.5, 16];
-var Sindh = [49.9, 71.5, 10];
-var KPK = [49.9, 71.5, 10];
-var Balochistan = [49.9, 71.5, 10];
+var Pakistan = Data["Pakistan"];
+var Punjab = Data["Punjab"];
+var Sindh = Data["Sindh"];
+var KPK = Data["KPK"];
+var Balochistan = Data["Balochistan"];
 
-Highcharts.chart('columnChartPakistan', {
+Highcharts.chart('container', {
     chart: {
         type: 'column'
     },
     title: {
-        text: 'Column chart with negative values'
+        text: 'Popularity Levels of the day (10 July)'
     },
     xAxis: {
         categories: ['PTI', 'PMLN', 'PPP']
