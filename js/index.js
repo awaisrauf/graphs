@@ -1,3 +1,13 @@
+
+
+var request = new XMLHttpRequest();
+   request.open("GET", "https://raw.githubusercontent.com/awaisrauf/graphs/master/simple.json", false);
+   request.send(null)
+   var my_JSON_object = JSON.parse(request.response);
+   
+   console.log(my_JSON_object);
+   var data1 = my_JSON_object["UrduTweets"];
+   console.log(data1[1]);
 Highcharts.chart('container', {
 
     chart: {
