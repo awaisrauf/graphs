@@ -135,8 +135,8 @@ Highcharts.chart('container', {
 //#################################################
 // Daily Popularity 
 
-var Pakistan = [-49.9, 71.5, 10];
-var Punjab = [49.9, 71.5, 16];
+var Pakistan = [-49.9, -71.5, 10];
+var Punjab = [49.9, -71.5, 16];
 var Sindh = [49.9, 71.5, 10];
 var KPK = [49.9, 71.5, 10];
 var Balochistan = [49.9, 71.5, 10];
