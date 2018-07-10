@@ -36,6 +36,10 @@ list_of_files_sindh = os.listdir(dir_name_sindh)
 list_of_files_kpk = os.listdir(dir_name_kpk)
 list_of_files_balochistan = os.listdir(dir_name_balochistan)
 
+
+#==============================================================================
+# Overall Pakistan's Results
+#==============================================================================
 for file in list_of_files_pakistan:
     ## Load Results from relative file
     with open(os.path.join(dir_name_pakistan,file)) as json_data:
@@ -53,9 +57,7 @@ Results_pakistan = {
 "PPP Line": PPP_line
 }
 
-#==============================================================================
-# Today's Results
-#==============================================================================
+
 Results_pakistan["Pakistan"] = getResultsList(dir_name_pakistan,list_of_files_pakistan[-1])
 Results_pakistan["Punjab"] = getResultsList(dir_name_punjab,list_of_files_punjab[-1])
 Results_pakistan["Sindh"] = getResultsList(dir_name_sindh,list_of_files_sindh[-1])
