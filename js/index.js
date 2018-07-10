@@ -38,6 +38,24 @@ Highcharts.chart('container', {
     }
       
       },
+	  
+	  plotBands: {
+      color: 'rgba(215, 255, 179, 0.57)',
+      from: Date.UTC(2018, 6, 7),
+      to: Date.UTC(2018, 6,8),
+      type: 'datetime',
+      label: { 
+        text: '<i>Pana Verdict Announced by Court</i>',
+        align: 'center',
+        style: {
+          fontSize: '12px',
+          fontWeight: 'bold'
+        },
+        y: 30
+      }
+    },
+  
+	  
     	exporting: { enabled: false },  
     yAxis: {
         title: {
@@ -69,19 +87,19 @@ Highcharts.chart('container', {
         name: 'PTI',
         
         data: PTI_line,
-		pointStart: Date.UTC(2018, 7, 7),
+		pointStart: Date.UTC(2018, 6, 7),
 		pointInterval: 24 * 3600 * 1000 // one day
 
     }, {
         name: 'PMLN',
         data: PMLN_line,
-		pointStart: Date.UTC(2018, 7, 7),
+		pointStart: Date.UTC(2018, 6, 7),
 		pointInterval: 24 * 3600 * 1000 // one day
     },
     {
         name: 'PPP',
         data: PPP_line,
-		pointStart: Date.UTC(2018, 7, 7),
+		pointStart: Date.UTC(2018, 6, 7),
 		pointInterval: 24 * 3600 * 1000 // one day
     }
     ]
