@@ -38,6 +38,7 @@ Highcharts.chart('container', {
     }
       
       },
+    	exporting: { enabled: false },  
     yAxis: {
         title: {
             text: 'Popularity in %'
@@ -48,6 +49,9 @@ Highcharts.chart('container', {
             }
         }
     },
+	
+	
+	
     tooltip: {
         crosshairs: true,
         shared: true
