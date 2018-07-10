@@ -1,43 +1,62 @@
-
+var url="https://raw.githubusercontent.com/awaisrauf/graphs/master/prediction_code/results/graph_results/pakistan.json";
 
 var request = new XMLHttpRequest();
-   request.open("GET", "https://raw.githubusercontent.com/awaisrauf/graphs/master/simple.json", false);
-   request.send(null)
-   var my_JSON_object = JSON.parse(request.response);
-   
-   console.log(my_JSON_object);
-   var data1 = my_JSON_object["UrduTweets"];
-   console.log(data1[1]);
+request.open("GET", url, false);
+request.send(null)
+var Data = JSON.parse(request.response);
    
    
    
    
 // ########################################################
 // Popularity History chart   
+
+var PTI_line = Data["PTI Line"];
+var PMLN_line = Data["PMLN Line"];
+var PPP_line = Data["PPP Line"];
+
 Highcharts.chart('container', {
     chart: {
         type: 'spline'
     },
     title: {
-        text: 'Monthly Average Temperature'
+        text: 'Popularity Levels of Top 3 Political Parties'
     },
     subtitle: {
-        text: 'Source: WorldClimate.com'
+        text: 'Real Time: From July 07'
     },
     xAxis: {
-        categories: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun',
-            'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
-    },
+        title: {
+            text: 'Popularity Level in %'
+        },
+        type: 'datetime',
+    labels: {
+      formatter: function() {
+        return Highcharts.dateFormat('%a %d %b', this.value);
+      }
+    }
+      
+      },
     yAxis: {
         title: {
-            text: 'Temperature'
+            text: 'Popularity Level in %'
         },
         labels: {
             formatter: function () {
-                return this.value + '°';
+                return this.value+ '%';
             }
         }
     },
+    exporting: { enabled: false },
+    credits: {
+    position: {
+        align: 'left',
+        verticalAlign: 'bottom',
+        x: 10,
+        y: -10
+    }
+},
+    
     tooltip: {
         crosshairs: true,
         shared: true
@@ -53,13 +72,23 @@ Highcharts.chart('container', {
     },
     series: [{
         name: 'PTI',
-       
-        data: [7.0, 6.9, 9.5, 14.5, 18.2, 21.5, 25.2, 23.3, 18.3, 13.9, 9.6]
+        data: PTI_line,
+    pointStart: Date.UTC(2018, 06, 07),
+    pointInterval: 24 * 3600 * 1000 // one day
 
     }, {
         name: 'PMLN',
-        data: [ 4.2, 5.7, 8.5, 11.9, 15.2, 17.0, 16.6, 14.2, 10.3, 6.6, 4.8]
-    }]
+        data: PMLN_line,
+    pointStart: Date.UTC(2018, 06, 07),
+    pointInterval: 24 * 3600 * 1000 // one day
+        }, 
+       {
+        name: 'PPP',
+        data: PPP_line,
+    pointStart: Date.UTC(2018, 06, 07),
+    pointInterval: 24 * 3600 * 1000 // one day
+        }
+     ]
 });
 
 //#################################################
