@@ -100,7 +100,7 @@ var Sindh = Data["Sindh"];
 var KPK = Data["KPK"];
 var Balochistan = Data["Balochistan"];
 
-Highcharts.chart('container', {
+Highcharts.chart('container1', {
     chart: {
         type: 'column'
     },
