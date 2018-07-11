@@ -85,19 +85,7 @@ Highcharts.chart('container', {
 		    pointInterval: 24 * 3600 * 1000, // one day
 		    id : 'PMLN Series'
     },
-    
-    {
-        type: 'flags',
-        onSeries: 'PMLN Series',
-        data: [{
-            x: Date.UTC(2018, 6, 7),
-            text: 'Post Panama Verdit Effects',
-            title: 'I',
-            color: '#FF0000'
-        }],
-        width: 16,
-        showInLegend: false
-    },
+
     
 	
     {
