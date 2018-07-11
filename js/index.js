@@ -39,21 +39,7 @@ Highcharts.chart('container', {
       
       },
 	  
-	  plotBands: {
-      color: 'rgba(215, 255, 179, 0.57)',
-      from: Date.UTC(2018, 6, 7),
-      to: Date.UTC(2018, 6,8),
-      type: 'datetime',
-      label: { 
-        text: '<i>Pana Verdict Announced by Court</i>',
-        align: 'center',
-        style: {
-          fontSize: '12px',
-          fontWeight: 'bold'
-        },
-        y: 30
-      }
-    },
+	
   
 	  
     	exporting: { enabled: false },  
@@ -87,20 +73,38 @@ Highcharts.chart('container', {
         name: 'PTI',
         
         data: PTI_line,
-		pointStart: Date.UTC(2018, 6, 7),
-		pointInterval: 24 * 3600 * 1000 // one day
+        color: '#FF0000',
+        pointStart: Date.UTC(2018, 6, 7),
+		    pointInterval: 24 * 3600 * 1000 // one day
 
     }, {
         name: 'PMLN',
         data: PMLN_line,
-		pointStart: Date.UTC(2018, 6, 7),
-		pointInterval: 24 * 3600 * 1000 // one day
+        color: '#00FF00',
+		    pointStart: Date.UTC(2018, 6, 7),
+		    pointInterval: 24 * 3600 * 1000, // one day
+		    id : 'PMLN Series'
     },
+    
+    {
+        type: 'flags',
+        onSeries: 'PMLN Series',
+        data: [{
+            x: Date.UTC(2018, 6, 7),
+            text: 'Post Panama Verdit Effects',
+            title: 'I',
+            color: '#FF0000'
+        }],
+        width: 16,
+        showInLegend: false
+    },
+    
+	
     {
         name: 'PPP',
         data: PPP_line,
-		pointStart: Date.UTC(2018, 6, 7),
-		pointInterval: 24 * 3600 * 1000 // one day
+		    pointStart: Date.UTC(2018, 6, 7),
+		    pointInterval: 24 * 3600 * 1000 // one day
     }
     ]
 });
@@ -108,12 +112,6 @@ Highcharts.chart('container', {
 //#################################################
 // Daily Popularity 
 
-url="https://raw.githubusercontent.com/awaisrauf/graphs/master/prediction_code/results/graph_results/pakistan.json";
-
-var request = new XMLHttpRequest();
-request.open("GET", url, false);
-request.send(null)
-var Data = JSON.parse(request.response);
 
 var Pakistan = Data["Pakistan"];
 var Punjab = Data["Punjab"];
