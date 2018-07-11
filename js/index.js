@@ -138,7 +138,7 @@ Highcharts.chart('container1', {
     }, {
         name: 'Punajb',
         data: Punjab,
-		color: '##c2b280'
+		color: '#c2b280'
     }, {
         name: 'Sindh',
         data: Sindh,
