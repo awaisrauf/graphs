@@ -95,7 +95,9 @@ Highcharts.chart('container', {
 //#################################################
 // Daily Popularity 
 
+
 var Punjab = Data["Punjab"];
+;
 
 Highcharts.chart('container1', {
     chart: {
@@ -112,7 +114,6 @@ Highcharts.chart('container1', {
     },
 	
 	exporting: { enabled: false },
-},
     series: [ {
         name: 'Punajb',
         data: Punjab
