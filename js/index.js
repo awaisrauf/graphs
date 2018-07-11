@@ -85,7 +85,8 @@ Highcharts.chart('container', {
 		    pointInterval: 24 * 3600 * 1000, // one day
 		    id : 'PMLN Series'
     },
-
+    
+    
     
 	
     {
