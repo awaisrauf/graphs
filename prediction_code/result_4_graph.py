@@ -13,9 +13,9 @@ def getResultsList(dir_name,file_name):
         results = json.load(json_data)
     Pop = results[ "Popularity"]
     Total = abs(Pop[0]) + abs(Pop[1]) + abs(Pop[2])   
-    list_results.append((Pop[0]/Total)*100)
-    list_results.append((Pop[1]/Total)*100)
-    list_results.append((Pop[2]/Total)*100) 
+    list_results.append(round((Pop[0]/Total)*100,2))
+    list_results.append(round((Pop[1]/Total)*100,2))
+    list_results.append(round((Pop[2]/Total)*100,2)) 
     return list_results
 
 
@@ -50,9 +50,9 @@ for file in list_of_files_pakistan:
     #     
     Pop = results[ "Popularity"]
     Total = abs(Pop[0]) + abs(Pop[1]) + abs(Pop[2])   
-    PTI_line.append((Pop[0]/Total)*100)
-    PMLN_line.append((Pop[1]/Total)*100)
-    PPP_line.append((Pop[2]/Total)*100)
+    PTI_line.append((round(Pop[0]/Total)*100,2))
+    PMLN_line.append((round(Pop[1]/Total)*100,2))
+    PPP_line.append((round(Pop[2]/Total)*100,2))
 
 Results_pakistan = {}
 Results_pakistan = {
@@ -84,9 +84,10 @@ for file in list_of_files_punjab:
     #     
     Pop = results[ "Popularity"]
     Total = abs(Pop[0]) + abs(Pop[1]) + abs(Pop[2])   
-    PTI_line.append((Pop[0]/Total)*100)
-    PMLN_line.append((Pop[1]/Total)*100)
-    PPP_line.append((Pop[2]/Total)*100)
+    PTI_line.append(round((Pop[0]/Total)*100,2))
+    PMLN_line.append(round((Pop[1]/Total)*100,2))
+    PPP_line.append(round((Pop[2]/Total)*100,2))
+
 
 Results_punjab = {}
 Results_punjab = {
@@ -114,10 +115,11 @@ for file in list_of_files_sindh:
         results = json.load(json_data)
     #     
     Pop = results[ "Popularity"]
-    Total = abs(Pop[0]) + abs(Pop[1]) + abs(Pop[2])   
-    PTI_line.append((Pop[0]/Total)*100)
-    PMLN_line.append((Pop[1]/Total)*100)
-    PPP_line.append((Pop[2]/Total)*100)
+    Total = abs(Pop[0]) + abs(Pop[1]) + abs(Pop[2])
+    PTI_line.append(round((Pop[0]/Total)*100,2))
+    PMLN_line.append(round((Pop[1]/Total)*100,2))
+    PPP_line.append(round((Pop[2]/Total)*100,2))
+
 
 Results_sindh = {
 "PTI Line": PTI_line,
@@ -145,9 +147,10 @@ for file in list_of_files_kpk:
     #     
     Pop = results[ "Popularity"]
     Total = abs(Pop[0]) + abs(Pop[1]) + abs(Pop[2])   
-    PTI_line.append((Pop[0]/Total)*100)
-    PMLN_line.append((Pop[1]/Total)*100)
-    PPP_line.append((Pop[2]/Total)*100)
+    PTI_line.append(round((Pop[0]/Total)*100,2))
+    PMLN_line.append(round((Pop[1]/Total)*100,2))
+    PPP_line.append(round((Pop[2]/Total)*100,2))
+
 
 Results_kpk = {
 "PTI Line": PTI_line,
@@ -172,9 +175,10 @@ for file in list_of_files_balouchistan:
     #     
     Pop = results[ "Popularity"]
     Total = abs(Pop[0]) + abs(Pop[1]) + abs(Pop[2])   
-    PTI_line.append((Pop[0]/Total)*100)
-    PMLN_line.append((Pop[1]/Total)*100)
-    PPP_line.append((Pop[2]/Total)*100)
+    PTI_line.append(round((Pop[0]/Total)*100,2))
+    PMLN_line.append(round((Pop[1]/Total)*100,2))
+    PPP_line.append(round((Pop[2]/Total)*100,2))
+
 
 Results_balouchistan = {
 "PTI Line": PTI_line,
