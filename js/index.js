@@ -37,11 +37,7 @@ Highcharts.chart('container', {
       }
     }
       
-      },
-	  
-	
-  
-	  
+      },  
     	exporting: { enabled: false },  
     yAxis: {
         title: {
@@ -52,10 +48,7 @@ Highcharts.chart('container', {
                 return this.value + '%';
             }
         }
-    },
-	
-	
-	
+    },	
     tooltip: {
         crosshairs: true,
         shared: true
@@ -86,9 +79,6 @@ Highcharts.chart('container', {
 		    id : 'PMLN Series'
     },
     
-    
-    
-	
     {
         name: 'PPP',
         data: PPP_line,
@@ -133,26 +123,21 @@ Highcharts.chart('container1', {
 },
     series: [{
         name: 'Pakistan',
-        data: Pakistan,
-		color: '#008000'
+        data: Pakistan
     }, {
         name: 'Punajb',
-        data: Punjab,
-		color: '#c2b280'
+        data: Punjab
     }, {
         name: 'Sindh',
-        data: Sindh,
-		color: '#00FFFF'
+        data: Sindh
     },
 	{
         name: 'KPK',
-        data: KPK,
-		color: '#8B0000'
+        data: KPK
     },
 	{
         name: 'Balochistan',
-        data: Balochistan,
-		color: '#FFFF00'
+        data: Balochistan
     }
     
 	
