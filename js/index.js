@@ -26,19 +26,19 @@ Highcharts.chart('container', {
     subtitle: {
         text: 'Source:  Twitter + Understanding'
     },
-     xAxis: {
+    xAxis: {
         title: {
             text: 'Popularity Level in %'
         },
         type: 'datetime',
-    labels: {
-      formatter: function() {
-        return Highcharts.dateFormat('%a %d %b', this.value);
+        labels: {
+        formatter: function() {
+       		 return Highcharts.dateFormat('%a %d %b', this.value);
       }
-    }
-      
-      },  
-    	exporting: { enabled: false },  
+     
+     }
+     },
+	  exporting: { enabled: false },  
     yAxis: {
         title: {
             text: 'Popularity in %'
@@ -48,7 +48,10 @@ Highcharts.chart('container', {
                 return this.value + '%';
             }
         }
-    },	
+    },
+	
+	
+	
     tooltip: {
         crosshairs: true,
         shared: true
@@ -75,10 +78,11 @@ Highcharts.chart('container', {
         data: PMLN_line,
         color: '#00FF00',
 		    pointStart: Date.UTC(2018, 6, 7),
-		    pointInterval: 24 * 3600 * 1000, // one day
-		    id : 'PMLN Series'
+		    pointInterval: 24 * 3600 * 1000 // one day
     },
+
     
+	
     {
         name: 'PPP',
         data: PPP_line,
@@ -113,14 +117,6 @@ Highcharts.chart('container1', {
     },
 	
 	exporting: { enabled: false },
-    credits: {
-    position: {
-        align: 'left',
-        verticalAlign: 'bottom',
-        x: 10,
-        y: -10
-    }
-},
     series: [{
         name: 'Pakistan',
         data: Pakistan
