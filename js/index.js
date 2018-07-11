@@ -133,21 +133,26 @@ Highcharts.chart('container1', {
 },
     series: [{
         name: 'Pakistan',
-        data: Pakistan
+        data: Pakistan,
+		color: '#008000'
     }, {
         name: 'Punajb',
-        data: Punjab
+        data: Punjab,
+		color: '##c2b280'
     }, {
         name: 'Sindh',
-        data: Sindh
+        data: Sindh,
+		color: '#00FFFF'
     },
 	{
         name: 'KPK',
-        data: KPK
+        data: KPK,
+		color: '#8B0000'
     },
 	{
         name: 'Balochistan',
-        data: Balochistan
+        data: Balochistan,
+		color: '#FFFF00'
     }
     
 	
