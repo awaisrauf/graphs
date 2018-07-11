@@ -50,9 +50,9 @@ for file in list_of_files_pakistan:
     #     
     Pop = results[ "Popularity"]
     Total = abs(Pop[0]) + abs(Pop[1]) + abs(Pop[2])   
-    PTI_line.append((round(Pop[0]/Total)*100,2))
-    PMLN_line.append((round(Pop[1]/Total)*100,2))
-    PPP_line.append((round(Pop[2]/Total)*100,2))
+    PTI_line.append(round((Pop[0]/Total)*100,2))
+    PMLN_line.append(round((Pop[1]/Total)*100,2))
+    PPP_line.append(round((Pop[2]/Total)*100,2))
 
 Results_pakistan = {}
 Results_pakistan = {
